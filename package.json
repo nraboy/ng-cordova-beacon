@@ -1,0 +1,32 @@
+{
+    "name": "ng-cordova-beacon",
+    "version": "0.0.1",
+    "description": "AngularJS wrapper for the Apache Cordova iBeacon plugin",
+    "author": {
+        "name": "Nic Raboy",
+        "url": "https://blog.nraboy.com"
+    },
+    "homepage": "http://www.nraboy.com",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-clean": "~0.6.0",
+        "grunt-contrib-uglify": "~0.5.0",
+        "grunt-contrib-concat": "^0.5.1"
+    },
+    "keywords": [
+        "angularjs",
+        "beacon",
+        "proximity",
+        "cordova",
+        "ionic",
+        "phonegap",
+        "mobile",
+        "android",
+        "ios"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "test": "grunt test"
+    }
+}
