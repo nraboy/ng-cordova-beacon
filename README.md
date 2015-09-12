@@ -4,7 +4,42 @@ Wrap the [cordova-plugin-ibeacon](https://github.com/petermetz/cordova-plugin-ib
 
 ## Using ngCordovaBeacon In Your Project
 
-Here are a list of available functions.
+The core Apache Cordova plugin is required to use this wrapper:
+
+```
+cordova plugin add https://github.com/petermetz/cordova-plugin-ibeacon
+```
+
+### Example Usage
+
+```
+.controller("ExampleController", function($scope, $rootScope, $ionicPlatform, $cordovaBeacon) {
+
+    $scope.beacons = {};
+
+    $ionicPlatform.ready(function() {
+
+        $cordovaBeacon.requestWhenInUseAuthorization();
+
+        $rootScope.$on("$cordovaBeacon:didRangeBeaconsInRegion", function(event, pluginResult) {
+            var uniqueBeaconKey;
+            for(var i = 0; i < pluginResult.beacons.length; i++) {
+                uniqueBeaconKey = pluginResult.beacons[i].uuid + ":" + pluginResult.beacons[i].major + ":" + pluginResult.beacons[i].minor;
+                $scope.beacons[uniqueBeaconKey] = pluginResult.beacons[i];
+            }
+            $scope.$apply();
+        });
+
+        $cordovaBeacon.startRangingBeaconsInRegion($cordovaBeacon.createBeaconRegion("estimote", "b9407f30-f5f8-466e-aff9-25556b57fe6d"));
+
+    });
+
+});
+```
+
+## Available Functions
+
+Here are a list of available functions:
 
 ```
 $cordovaBeacon.requestWhenInUseAuthorization();
