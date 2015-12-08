@@ -29,6 +29,14 @@ angular.module("ngCordovaBeacon", [])
                 $rootScope.$broadcast("$cordovaBeacon:didDetermineStateForRegion", pluginResult);
             };
 
+            delegate.didEnterRegion = function(pluginResult) {
+                $rootScope.$broadcast('$cordovaBeacon:didEnterRegion', pluginResult);
+            };
+
+            delegate.didExitRegion = function(pluginResult) {
+                $rootScope.$broadcast('$cordovaBeacon:didExitRegion', pluginResult);
+            };
+
             cordova.plugins.locationManager.setDelegate(delegate);
 
         }
